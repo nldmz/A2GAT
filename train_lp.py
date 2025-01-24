@@ -127,11 +127,10 @@ if __name__ == '__main__':
         U_emb_list = []
         for batch in idx_U_dataloader:
             batch_idx_U = batch[0].to(device)
-            # 对每个批次的idx_U调用get_U_emb
+
             batch_U_emb = model.get_user_embedding(batch_idx_U)
             U_emb_list.append(batch_U_emb)
 
-        # 将所有的batch拼接起来
         U_emb_list = [emb.cpu().detach().numpy() for emb in U_emb_list]
         U_emb = np.concatenate(U_emb_list, axis=0)
         # U_emb = np.concatenate(U_emb_list, axis=0)

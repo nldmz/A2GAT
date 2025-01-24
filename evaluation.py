@@ -25,9 +25,8 @@ def ndcg(r, k, n_ground_truth):
 
 
 def test_minibatch(csr_test, csr_train, test_batch):
-    """生成推荐系统测试数据的小批量，以便在评估模型性能时只考虑测试数据集中的交互"""
 
-    num_U = len(csr_test.indptr) - 1  # 用户数量
+    num_U = len(csr_test.indptr) - 1  
     for begin in range(0, num_U, test_batch):
         head = csr_test.indptr[begin: min(begin + test_batch, num_U)]
         tail = csr_test.indptr[1 + begin: 1 + begin + test_batch]
