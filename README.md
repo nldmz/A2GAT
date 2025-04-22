@@ -44,7 +44,7 @@ dataset/
 
 Basic training:
 ```bash
-python train.py --dataset ML-100K --gpu 0 --dim 64
+python train.py --dataset DBLP --gpu 0 --dim 64
 ```
 
 
